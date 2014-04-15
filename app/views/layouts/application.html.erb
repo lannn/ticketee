@@ -13,6 +13,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<h1><%= link_to "Ticketee", root_path %></h1>
+
 <% flash.each do |key, value| %>
   <div class="flash" id="<%= key %>">
   	<%= value %>
