@@ -55,6 +55,7 @@ GEM
       cucumber-rails (>= 1.1.1)
     database_cleaner (1.2.0)
     diff-lcs (1.2.5)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.0.2)
     gherkin (2.12.2)
@@ -153,6 +154,7 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
+  dynamic_form
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.2)
