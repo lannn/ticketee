@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
   end
+
+  protected
+  def password_required?
+    false
+  end
 end
