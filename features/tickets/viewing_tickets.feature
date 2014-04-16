@@ -4,12 +4,15 @@ Feature: Viewing tickets
   I want to view ticket from project
 
   Background:
+    Given there are the following users:
+      | email             | password |
+      | user@ticketee.com | password |
     Given there is a project called "Phu Quoc"
-    And project has a ticket:
+    And "user@ticketee.com" has created ticket for this project:
       | title   |  description   |
       | Backend |  Ruby on Rails |
     Given there is a project called "MOOC"
-    And project has a ticket:
+    And "user@ticketee.com" has created ticket for this project:
       | title   |  description       |
       | Mobile  |  iOS, Android, WP8 |
     And I am on the homepage

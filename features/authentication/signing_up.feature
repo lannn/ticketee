@@ -4,7 +4,7 @@ Feature: Signing up
   I want to sign up new account
 
   Scenario: Signing up via confirmation
-    Given there are the following users
+    Given there are the following users:
       | email             | password |
       | user@ticketee.com | password |
     And "user@ticketee.com" opens the email with subject "Confirmation instructions"

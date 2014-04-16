@@ -5,15 +5,24 @@ Feature: Creating tickets
 
   Background:
     Given there is a project called "Phu Quoc"
+    And there are the following users:
+      | email             | password |
+      | user@ticketee.com | password |
     And I am on the homepage
     When I follow "Phu Quoc"
     And I follow "New Ticket"
+    Then I should see "You need to sign in or sign up before continuing."
+    When I fill in "Email" with "user@ticketee.com"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    Then I should see "New Ticket" 
 
   Scenario: Create ticket
     When I fill in "Title" with "Backend"
     And I fill in "Description" with "Ruby on Rails"
     And I press "Create Ticket"
     Then I should see "Ticket has been created."
+    And I should see "Created by user@ticketee.com"
 
   Scenario: Creating ticket with invalid attributes
     When I press "Create Ticket"
