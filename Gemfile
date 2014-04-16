@@ -34,6 +34,7 @@ group :test do
   gem 'database_cleaner'
   gem 'cucumber-rails-training-wheels'
   gem 'factory_girl_rails'
+  gem 'email_spec'
 end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
