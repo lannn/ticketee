@@ -10,8 +10,10 @@ Feature: Viewing projects
     And I am signed in as "user@ticketee.com"
     And there is a project called "Sublime Text 2"
     And "user@ticketee.com" can view the "Sublime Text 2" project
+    And there is a project called "Invisible"
 
   Scenario: Listing projects
     And I am on the homepage
+    Then I should not see "Invisible"
     When I follow "Sublime Text 2"
     Then I should be on the project page for "Sublime Text 2"
