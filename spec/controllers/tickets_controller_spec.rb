@@ -34,5 +34,20 @@ describe TicketsController do
       post :create, project_id: project.id, ticket: { title: ticket.title, description: ticket.description } 
       cannot_create_tickets!
     end
+
+    def cannot_edit_tickets!
+      expect(response).to redirect_to(project)
+      expect(flash[:alert]).to eql("You cannot update tickets on this project.")
+    end
+
+    it "cannot edit a ticket without permission" do
+      get :edit, { project_id: project.id, id: ticket.id }
+      cannot_edit_tickets! 
+    end
+
+    it "cannot update a ticket without permission" do
+      put :update, { project_id: project.id, id: ticket.id, ticket: { title: ticket.title, description: ticket.description } }
+      cannot_edit_tickets!
+    end
   end
 end

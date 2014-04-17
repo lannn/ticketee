@@ -10,6 +10,7 @@ Feature: Editing Tickets
     And I am signed in as them
     Given there is a project called "Phu Quoc"
     And "user@ticketee.com" can view the "Phu Quoc" project
+    And "user@ticketee.com" can update tickets in the "Phu Quoc" project
     And "user@ticketee.com" has created ticket for this project:
       | title   |  description   |
       | Backend |  Ruby on Rails |
