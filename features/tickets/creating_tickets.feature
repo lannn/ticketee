@@ -9,6 +9,7 @@ Feature: Creating tickets
       | email             | password |
       | user@ticketee.com | password |
     And "user@ticketee.com" can view the "Phu Quoc" project
+    And "user@ticketee.com" can create tickets in the "Phu Quoc" project
     And I am signed in as "user@ticketee.com"
     And I am on the homepage
     When I follow "Phu Quoc"
