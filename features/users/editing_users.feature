@@ -22,8 +22,6 @@ Feature: Editing User
     When I fill in "Email" with "update_user@ticketee.com"
     And I press "Update User"
     Then I should see "User has been updated."
-    And I should see "update_user@ticketee.com"
-    And I should not see "user@ticketee.com"
 
   Scenario: Toggling a user's admin ability
     When I check "Is an admin?"
