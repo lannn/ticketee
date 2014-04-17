@@ -1,6 +1,6 @@
 Ticketee::Application.routes.draw do
   get "users/index"
-  devise_for :users, :controller => { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations" }
   get "/awaiting_confirmation", to: "users#confirmation", as: "confirm_user"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
