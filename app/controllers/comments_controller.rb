@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :find_ticket
 
   def create
+    comment_params.delete(:state_id) if cannot?(:"change states", @ticket.project)
     @comment = @ticket.comments.build(comment_params.merge(user: current_user))
     if @comment.save
       flash[:notice] = "Comment has been created."
