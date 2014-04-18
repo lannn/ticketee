@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'dynamic_form'
 gem 'devise'
 gem 'cancan'
+gem 'paperclip'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
