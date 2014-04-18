@@ -15,5 +15,6 @@
       <%= asset.file_field :asset %>
     </p>
   <% end %>
+  <%= link_to "Add another file", new_file_path, remote: true, updates: "files", position: "after" %>
   <%= f.submit %>
 <% end %>
