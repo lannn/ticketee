@@ -10,4 +10,11 @@ class FilesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def new
+    debugger
+    @ticket = Ticket.new
+    asset = @ticket.assets.build
+    render "files/form", asset: asset, number: params[:number].to_i
+  end
 end

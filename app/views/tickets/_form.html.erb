@@ -9,12 +9,11 @@
     <%= f.text_field :description %>
   </p>
   <% number = 0 %>
-  <%= f.fields_for :assets do |asset| %>
-    <p>
-      <%= asset.label :asset, "File ##{number += 1}" %>
-      <%= asset.file_field :asset %>
-    </p>
-  <% end %>
-  <%= link_to "Add another file", new_file_path, remote: true, updates: "files", position: "after" %>
+  <div id="files">
+    <%= render "files/form", number: number %>
+  </div>
+  <p>
+    <%= link_to "Add another file", "javascript", id: "add_another_file" %>
+  </p> 
   <%= f.submit %>
 <% end %>
