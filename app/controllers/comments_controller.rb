@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     comment_params.delete(:state_id) if cannot?(:"change states", @ticket.project)
     @comment = @ticket.comments.build(comment_params.merge(user: current_user))
     if @comment.save
+      @ticket.tag_list.add(params[:tag_list], parse: true)
+      @ticket.save
       flash[:notice] = "Comment has been created."
       redirect_to [@ticket.project, @ticket]
     else
