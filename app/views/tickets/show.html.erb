@@ -3,6 +3,13 @@
   <br><small>Created by <%= @ticket.user.email %></small>
   <%= render @ticket.state if @ticket.state %>
   <%= simple_format(@ticket.description) %>
+  <div id="tags">
+    <% if @ticket.tags.any? %>
+      <% @ticket.tags.each do |tag| %>
+        <%= link_to tag.name, "#" %>
+      <% end %>
+    <% end %>
+  </div>
   <% if @ticket.assets.exists? %>
     <h3>Attached Files</h3>
     <div class="assets">

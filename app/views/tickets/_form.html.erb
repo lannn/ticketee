@@ -8,6 +8,10 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </p>
+  <p>
+    <%= f.label :tags %>
+    <%= f.text_field :tag_list %>
+  </p>
   <% number = 0 %>
   <div id="files">
     <%= render "files/form", number: number %>
