@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_project
-  before_action :find_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :find_ticket, only: [:show, :edit, :update, :destroy, :remove_tag]
   before_action :authorize_create!, only: [:new, :create]
   before_action :authorize_update!, only: [:edit, :update]
   before_action :authorize_delete!, only: [:destroy]
@@ -46,6 +46,12 @@ class TicketsController < ApplicationController
     redirect_to @project  
   end
 
+  def remove_tag
+    @ticket.tag_list.remove(params[:tag_name])
+    @ticket.save
+    render nothing: true
+  end
+
   private
   def find_project
     begin
@@ -58,7 +64,7 @@ class TicketsController < ApplicationController
 
   def find_ticket
     @ticket = @project.tickets.find(params[:id])
-  end
+  end 
 
   def ticket_params
     params.required(:ticket).permit!

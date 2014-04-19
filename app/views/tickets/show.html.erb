@@ -6,6 +6,7 @@
   <div id="tags">
     <% if @ticket.tags.any? %>
       <% @ticket.tags.each do |tag| %>
+        <%= link_to "X", remove_tag_ticket_path(@project, @ticket, tag.name), remote: true, method: :delete %>
         <%= link_to tag.name, "#" %>
       <% end %>
     <% end %>
