@@ -1,4 +1,5 @@
 class Ticket < ActiveRecord::Base
+  after_create :creator_watches_me
   acts_as_taggable
 
   validates :title, presence: true
@@ -11,4 +12,10 @@ class Ticket < ActiveRecord::Base
   has_many :assets
   accepts_nested_attributes_for :assets
   has_many :comments
+  has_and_belongs_to_many :watchers, join_table: "ticket_watchers", class_name: "User"
+  
+  private
+  def creator_watches_me
+    self.watchers << user
+  end
 end

@@ -19,6 +19,7 @@ gem 'devise'
 gem 'cancan'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
+gem 'rails-observers'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -29,6 +30,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem 'debugger'
+  gem 'gmail'
 end
 
 group :test do

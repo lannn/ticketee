@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419020040) do
+ActiveRecord::Schema.define(version: 20140419082125) do
 
   create_table "assets", force: true do |t|
     t.string   "asset_file_name"
@@ -73,6 +73,11 @@ ActiveRecord::Schema.define(version: 20140419020040) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
+  create_table "ticket_watchers", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "ticket_id"
+  end
 
   create_table "tickets", force: true do |t|
     t.string   "title"
