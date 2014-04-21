@@ -1,6 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
   before_action :authorize_admin!, except: [:index, :show]
-  before_action :find_project, only: :show
+  before_action :find_project, only: [:show, :update]
 
   def index
     respond_with(Project.for(current_user))
@@ -16,8 +16,12 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def show
-    @project = Project.find(params[:id])
     respond_with(@project, methods: "last_ticket")
+  end
+
+  def update
+    @project.update_attributes(project_params)
+    respond_with(@project)
   end
 
   private
