@@ -64,4 +64,24 @@ describe "/api/v1/projects", type: :api do
       expect(last_response.body).to eql(errors)
     end 
   end 
+
+  context "show" do
+    let(:url) { "/api/v1/projects/#{@project.id}" } 
+
+    before(:each) do
+      create(:ticket, project: @project)
+    end
+
+    it "JSON" do
+      get "#{url}.json", token: token
+
+      project = @project.to_json(methods: "last_ticket")
+      expect(last_response.body).to eql(project)
+      expect(last_response.status).to eql(200)
+
+      project_response = JSON.parse(last_response.body)
+      ticket_title = project_response["last_ticket"]["title"]
+      expect(ticket_title).to be_true
+    end
+  end
 end
