@@ -1,7 +1,6 @@
 class Api::V1::BaseController < ActionController::Base
   respond_to :json, :xml
   before_action :authenticate_user_from_token!
-  before_action :authorize_admin!, except: [:index, :show]
 
   private
 
