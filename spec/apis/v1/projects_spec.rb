@@ -111,4 +111,19 @@ describe "/api/v1/projects", type: :api do
       expect(last_response.status).to eql(422)
     end
   end
+
+  context "deleting a project" do
+    let(:url) { "/api/v1/projects/#{@project.id}"}
+
+    before do
+      user.admin = true
+      user.save
+    end
+
+    it "JSON" do
+      delete "#{url}.json", token: token
+
+      expect(last_response.status).to eql(204)
+    end
+  end
 end
