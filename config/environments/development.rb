@@ -34,7 +34,7 @@ Ticketee::Application.configure do
     port:                 587,
     domain:               'example.com',
     user_name:            'nguyenngoclan.clc@gmail.com',
-    password:             'pfievk52',
+    password:             'xxxxxxxx',
     authentication:       'plain',
     enable_starttls_auto: true  }
 end
