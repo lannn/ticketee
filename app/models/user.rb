@@ -17,11 +17,6 @@ class User < ActiveRecord::Base
     update_all("request_count = 0", "request_count > 0") 
   end
 
-  protected
-  def password_required?
-    false
-  end
-
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token

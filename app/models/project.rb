@@ -10,6 +10,10 @@ class Project < ActiveRecord::Base
     tickets.last  
   end
 
+  def title
+    name
+  end
+
   def self.for(user)
     user.admin? ? Project : Project.readable_by(user)
   end
