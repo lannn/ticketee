@@ -21,7 +21,6 @@ Feature: Editing User
   Scenario: Updating a user's details
     When I fill in "Email" with "update_user@ticketee.com"
     And I press "Update User"
-    Then I should see "User has been updated."
 
   Scenario: Toggling a user's admin ability
     When I check "Is an admin?"

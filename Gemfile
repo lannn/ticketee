@@ -20,6 +20,7 @@ gem 'cancan'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'rails-observers'
+gem 'omniauth-twitter'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

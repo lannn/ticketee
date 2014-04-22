@@ -16,7 +16,7 @@ Ticketee::Application.routes.draw do
   end
   
   get "users/index"
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: "users/omniauth_callbacks" }
   get "/awaiting_confirmation", to: "users#confirmation", as: "confirm_user"
   put "/admin/users/:user_id/permissions", to: "admin/permissions#update", as: "update_user_permissions"
   delete "/projects/:project_id/tickets/:id/tags/:tag_name", to: "tickets#remove_tag", as: "remove_tag_ticket" 

@@ -1,6 +1,6 @@
 <div id='ticket'>
   <h2><%= @ticket.title %></h2>
-  <br><small>Created by <%= @ticket.user.email %></small>
+  <br><small>Created by <%= @ticket.user.display_name %></small>
   <%= render @ticket.state if @ticket.state %>
   <%= simple_format(@ticket.description) %>
   <div id="tags">
