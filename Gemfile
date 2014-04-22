@@ -18,6 +18,7 @@ gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'rails-observers'
 gem 'omniauth-twitter'
+gem 'figaro'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
