@@ -39,8 +39,7 @@ class Api::V2::ProjectsController < Api::V2::BaseController
     begin
       @project = Project.for(current_user).find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      error = { error: "The project you were looking for could not be found." }
-      respond_with(error, status: 404)
+      respond_with({ error: "The project you were looking for could not be found." }, status: 404)
     end
   end
 end

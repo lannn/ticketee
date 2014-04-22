@@ -12,9 +12,8 @@ class Api::V1::BaseController < ActionController::Base
 
   def authorize_admin!
     unless @current_user.admin?
-      error = { error: "You must be admin to do that." }
       warden.custom_failure!
-      render params[:format].to_sym => error, status: 401
+      render params[:format].to_sym => { error: "You must be admin to do that." }, status: 401
     end
   end
 
@@ -24,8 +23,7 @@ class Api::V1::BaseController < ActionController::Base
 
   def check_rate_limit
     if @current_user.request_count > 100
-      error = { error: "Rate limit exceeded."}
-      respond_with(error, status: 403)
+      respond_with({ error: "Rate limit exceeded." }, status: 403)
     else
       @current_user.increment!(:request_count)
     end
