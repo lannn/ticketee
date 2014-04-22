@@ -43,10 +43,7 @@ describe "/api/v2/projects", type: :api do
 
   context "creating a project" do
     let(:url) { "/api/v2/projects" }
-    before do
-      user.admin = true
-      user.save
-    end
+    before { user.update_attribute(:admin, true) }
 
     it "successful JSON" do
       post "#{url}.json", token: token, project: { name: "Inspector" }
@@ -89,10 +86,7 @@ describe "/api/v2/projects", type: :api do
 
   context "updating a project" do
     let(:url) { "/api/v2/projects/#{@project.id}" }
-    before(:each) do
-      user.admin = true
-      user.save
-    end
+    before { user.update_attribute(:admin, true) }
 
     it "succeessful JSON" do
       expect(@project.name).to eql("Ticketee")
@@ -116,11 +110,7 @@ describe "/api/v2/projects", type: :api do
 
   context "deleting a project" do
     let(:url) { "/api/v2/projects/#{@project.id}"}
-
-    before do
-      user.admin = true
-      user.save
-    end
+    before { user.update_attribute(:admin, true) }
 
     it "JSON" do
       delete "#{url}.json", token: token
