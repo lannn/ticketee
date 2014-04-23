@@ -7,12 +7,14 @@
 <%= authorized?("create tickets".to_sym, @project) do %>
   <%= link_to "New Ticket", new_project_ticket_path(@project) %>
 <% end %>
-<%= paginate @tickets %>
-<ul>
-  <% @tickets.each do |ticket| %>
-    <li>
-      <%= render ticket.state if ticket.state %>
-      #<%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
-    </li>
-  <% end %>
-</ul>
+<% cache "projects/#{@project.id}/#{params[:page] || 1}" do %>
+  <%= paginate @tickets %>
+  <ul>
+    <% @tickets.each do |ticket| %>
+      <li>
+        <%= render ticket.state if ticket.state %>
+        #<%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
