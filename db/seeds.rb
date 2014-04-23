@@ -13,6 +13,7 @@ user = User.create(email: "lan.nguyenngoc@2359media.com.vn", password: "password
 user.confirm!
 
 project = Project.create(name: "Ticketee Beta")
+user.permissions.create!(action: "view", thing: project)
 
 State.create(name: "New", background: "#85FF00", color: "white", default: true)
 State.create(name: "Open", background: "#00CFFD", color: "white")

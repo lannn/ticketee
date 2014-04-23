@@ -22,6 +22,8 @@ gem 'figaro'
 gem 'kaminari'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

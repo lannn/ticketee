@@ -7,6 +7,9 @@ class TicketsController < ApplicationController
   before_action :authorize_delete!, only: [:destroy]
   cache_sweeper :tickets_sweeper, only: [:create, :update, :destroy]
 
+  etag { @ticket }
+  etag { current_user.id }
+
   def show
     @comment = @ticket.comments.build
     @states = State.all

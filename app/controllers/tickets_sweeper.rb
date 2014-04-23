@@ -6,7 +6,7 @@ class TicketsSweeper < ActionController::Caching::Sweeper
   end
 
   def after_update(ticket)
-    expire_fragments_for_project(ticket.project)    
+    expire_fragments_for_project(ticket.project) unless ticket.changed_attributes.empty?    
   end
 
   def after_destroy(ticket)
