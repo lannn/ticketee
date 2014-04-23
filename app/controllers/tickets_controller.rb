@@ -5,6 +5,7 @@ class TicketsController < ApplicationController
   before_action :authorize_create!, only: [:new, :create]
   before_action :authorize_update!, only: [:edit, :update]
   before_action :authorize_delete!, only: [:destroy]
+  cache_sweeper :tickets_sweeper, only: [:create, :update, :destroy]
 
   def show
     @comment = @ticket.comments.build

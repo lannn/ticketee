@@ -3,6 +3,10 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :index]
 	before_action :find_project, :only => [:show, :edit, :update, :destroy]
 
+  caches_action :show, cache_path: (Proc.new do
+    project_url(params[:id]) + "/#{current_user.id}/#{params[:page] || 1}"
+  end)
+
 	def index
 	  @projects = Project.for(current_user).all
 	end
