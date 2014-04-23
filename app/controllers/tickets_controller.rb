@@ -10,6 +10,7 @@ class TicketsController < ApplicationController
   def show
     @comment = @ticket.comments.build
     @states = State.all
+    fresh_when(@ticket)
   end
 
 	def new
