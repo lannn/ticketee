@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -24,6 +25,10 @@ gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem "active_model_serializers"
+gem "puma"
+gem 'metric_fu'
+gem 'simplecov'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
